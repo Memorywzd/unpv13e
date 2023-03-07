@@ -7,6 +7,15 @@ PROGS =	daytimetcpcli daytimetcpcli1 daytimetcpcli2 daytimetcpcli3 \
 
 all:	${PROGS}
 
+1.3: 1.3.o
+	${CC} ${CFLAGS} -o $@ 1.3.o ${LIBS}
+
+1.4: 1.4.o
+	${CC} ${CFLAGS} -o $@ 1.4.o ${LIBS}
+
+1.5: 1.5.o
+	${CC} ${CFLAGS} -o $@ 1.5.o ${LIBS}
+
 daytimetcpcli:	daytimetcpcli.o
 		${CC} ${CFLAGS} -o $@ daytimetcpcli.o ${LIBS}
 
