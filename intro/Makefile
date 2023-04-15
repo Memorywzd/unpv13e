@@ -16,6 +16,15 @@ all:	${PROGS}
 1.5: 1.5.o
 	${CC} ${CFLAGS} -o $@ 1.5.o ${LIBS}
 
+4.2: 4.2.o
+	${CC} ${CFLAGS} -o $@ 4.2.o ${LIBS}
+
+4.4: 4.4.o
+	${CC} ${CFLAGS} -o $@ 4.4.o ${LIBS}
+
+4.5: 4.5.o
+	${CC} ${CFLAGS} -o $@ 4.5.o ${LIBS}
+
 daytimetcpcli:	daytimetcpcli.o
 		${CC} ${CFLAGS} -o $@ daytimetcpcli.o ${LIBS}
 

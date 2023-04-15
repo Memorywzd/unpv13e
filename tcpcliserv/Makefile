@@ -7,6 +7,9 @@ PROGS =	tcpcli01 tcpcli04 tcpcli05 tcpcli06 \
 
 all:	${PROGS}
 
+5.6: 	5.6.o
+		${CC} ${CFLAGS} -o $@ 5.6.o ${LIBS}
+
 tcpcli01:	tcpcli01.o
 		${CC} ${CFLAGS} -o $@ tcpcli01.o ${LIBS}
 
