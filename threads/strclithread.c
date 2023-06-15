@@ -10,14 +10,18 @@ str_cli(FILE *fp_arg, int sockfd_arg)
 {
 	char		recvline[MAXLINE];
 	pthread_t	tid;
+	int			flag = 0;
 
 	sockfd = sockfd_arg;	/* copy arguments to externals */
 	fp = fp_arg;
 
 	Pthread_create(&tid, NULL, copyto, NULL);
 
-	while (Readline(sockfd, recvline, MAXLINE) > 0)
+	while (Readline(sockfd, recvline, MAXLINE) > 0){
+		if (flag == 1)
+			printf("server closed pre maturely\n");
 		Fputs(recvline, stdout);
+	}
 }
 
 void *
@@ -30,6 +34,7 @@ copyto(void *arg)
 
 	Shutdown(sockfd, SHUT_WR);	/* EOF on stdin, send FIN */
 
+	flag = 1;
 	return(NULL);
 		/* 4return (i.e., thread terminates) when EOF on stdin */
 }
